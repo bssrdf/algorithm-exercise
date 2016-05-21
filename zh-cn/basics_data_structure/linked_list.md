@@ -8,6 +8,21 @@
 
 链表就是链式存储的线性表。根据指针域的不同，链表分为单向链表、双向链表、循环链表等等。
 
+## 编程实现
+
+### Java
+
+```java
+public class ListNode {
+    public int val;
+    public ListNode next;
+    public ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+```
+
 ## 链表的基本操作
 
 ### 反转链表
@@ -31,7 +46,7 @@ public ListNode reverse(ListNode head) {
 
 ### 删除链表中的某个节点
 
-删除链表中的某个节点一定需要知道这个点的前继节点，所以需要一直有指针指向前继节点。
+删除链表中的某个节点一定需要知道这个点的前继节点，所以需要一直有指针指向前继节点。还有一种删除是伪删除，是指复制一个和要删除节点值一样的节点，然后删除，这样就不必知道其真正的前继节点了。
 
 然后只需要把 `prev -> next = prev -> next -> next` 即可。但是由于链表表头可能在这个过程中产生变化，导致我们需要一些特别的技巧去处理这种情况。就是下面提到的 Dummy Node。
 
